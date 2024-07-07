@@ -1,0 +1,46 @@
+float V;
+int readVal;
+int analogPin = A0;
+int ledPinv = 10;
+int ledPina = 9;
+int ledPinr = 8;
+int dt = 200;
+void setup() {
+
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+
+  pinMode(analogPin, INPUT);
+  pinMode(ledPinv, OUTPUT);
+  pinMode(ledPina, OUTPUT);
+  pinMode(ledPinr, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  readVal = analogRead(analogPin);
+  V = (5. * readVal) / 1023.;
+  if (V >= 1.0 && V<= 2.0) {
+    digitalWrite(ledPinv, HIGH);
+  }
+  if (V <= 1.0 || V >= 2.0) {
+    digitalWrite(ledPinv, LOW);
+  }
+  if (V >= 2.0 && V<= 3.0) {
+    digitalWrite(ledPina, HIGH);
+  }
+  if (V <= 2.0 || V >= 3.0) {
+    digitalWrite(ledPina, LOW);
+  }
+  if (V >= 3.0 && V<= 4.0) {
+    digitalWrite(ledPinr, HIGH);
+  }
+  if (V <= 3.0 || V >= 4.0) {
+    digitalWrite(ledPinr, LOW);
+  }
+
+  Serial.print("el voltaje actual es:");
+  Serial.print(V);
+  Serial.println(" voltios");
+  delay(dt);
+}
