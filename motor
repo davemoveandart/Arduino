@@ -1,0 +1,20 @@
+#include <Stepper.h>
+int stepsPerRevolution = 2040;
+int motSpeed = 18;
+int luz = 2;
+Stepper myStepper (stepsPerRevolution,8,10,9,11);
+int dt = 500;
+void setup() {
+  // put your setup code here, to run once:
+myStepper.setSpeed(motSpeed);
+pinMode(luz, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(luz, HIGH);
+myStepper.step(stepsPerRevolution*4);
+delay(dt);
+myStepper.step(-stepsPerRevolution*4);
+delay(dt);
+}
