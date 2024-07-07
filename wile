@@ -1,0 +1,30 @@
+int potP = A2;
+int ledP = 12;
+int potV;
+int dt = 200;
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+  Serial.begin(9600);
+  pinMode(potP, INPUT);
+  pinMode(ledP, OUTPUT);
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  potV = analogRead(potP);
+  Serial.println(potV);
+  delay(dt);
+
+  while (potV > 600) {
+    digitalWrite(ledP, HIGH);
+    Serial.println(potV);
+    potV = analogRead(potP);
+    delay(dt);
+  }
+  digitalWrite(ledP, LOW);
+}
