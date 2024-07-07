@@ -1,0 +1,107 @@
+#include <Stepper.h>
+int stepsPerRevolution = 1000;
+int stepsPerRevolution2 = 2040;
+int stepsRandom = random(300, 600);
+int stepsRandomN = random(200, 600);
+int motSpeed = 5;
+int motSpeed2 = 15;
+int motRandomS = random(4, 18);
+int dt = 200;
+int dtr = random(200, 300);
+int led2 = 2;
+Stepper Stepper1(stepsPerRevolution, 8, 10, 9, 11);
+Stepper Stepper2(stepsPerRevolution2, 4, 6, 5, 7);
+Stepper Stepper1R(stepsPerRevolution, 8, 10, 9, 11);
+Stepper Stepper2R(stepsPerRevolution2, 4, 6, 5, 7);
+
+void setup() {
+  // put your setup code here, to run once:
+  Stepper1.setSpeed(motSpeed);
+  Stepper2.setSpeed(motSpeed2);
+  Stepper1R.setSpeed(motRandomS);
+  Stepper2R.setSpeed(motRandomS);
+
+  pinMode(led2, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  Stepper1.step(stepsRandom);
+  Stepper1.step(-stepsRandomN);
+  Stepper1.step(stepsRandom);
+  Stepper1.step(-stepsRandomN);
+  Stepper1.step(stepsRandom);
+  Stepper1.step(-stepsRandomN);
+  Stepper1.step(stepsRandom);
+  Stepper1.step(-stepsRandomN);
+  Stepper1.step(stepsRandom);
+  Stepper1.step(-stepsRandomN);
+
+
+
+  digitalWrite(led2, HIGH);
+  delay(100);
+  digitalWrite(led2, LOW);
+  delay(100);
+  digitalWrite(led2, HIGH);
+  delay(200);
+  digitalWrite(led2, LOW);
+  delay(200);
+  digitalWrite(led2, HIGH);
+  delay(300);
+  digitalWrite(led2, LOW);
+  delay(300);
+  digitalWrite(led2, HIGH);
+  delay(400);
+  digitalWrite(led2, LOW);
+  delay(400);
+  digitalWrite(led2, HIGH);
+
+
+  Stepper1.step(-stepsPerRevolution);
+  Stepper2.step(-stepsPerRevolution2 * 4);
+  delay(dt);
+  Stepper1.step(stepsRandom);
+  Stepper2.step(stepsPerRevolution2 * 4);
+  delay(dt);
+
+  Stepper2R.step(-stepsRandomN * 2);
+  Stepper2R.step(stepsRandom * 2);
+  delay(dt);
+  Stepper2R.step(-stepsRandomN * 2);
+  Stepper2R.step(stepsRandom * 2);
+  delay(dt);
+
+  digitalWrite(led2, LOW);
+  delay(300);
+  digitalWrite(led2, HIGH);
+  delay(400);
+  digitalWrite(led2, LOW);
+  delay(400);
+  digitalWrite(led2, HIGH);
+
+  delay(dt);
+  digitalWrite(led2, LOW);
+  delay(dtr);
+  digitalWrite(led2, HIGH);
+  Stepper2R.step(-stepsPerRevolution2 * 2);
+  delay(dtr);
+  digitalWrite(led2, LOW);
+  delay(dtr);
+  digitalWrite(led2, HIGH);
+  delay(dtr);
+  digitalWrite(led2, LOW);
+  delay(dtr);
+  digitalWrite(led2, HIGH);
+  Stepper2R.step(stepsPerRevolution2 * 2);
+  delay(dtr);
+  digitalWrite(led2, LOW);
+  delay(dtr);
+  digitalWrite(led2, HIGH);
+  delay(dtr);
+  digitalWrite(led2, LOW);
+  delay(dtr);
+  digitalWrite(led2, HIGH);
+  delay(dt);
+}
