@@ -1,0 +1,161 @@
+
+int timer = 100;  //Global
+
+void setup() {
+  // put your setup code here, to run once:
+  ////iluminación rojo izquierdo//
+  pinMode(1, OUTPUT);
+  //iluminación azúl izquierdo//
+  pinMode(2, OUTPUT);
+  //iluminación frontal//
+  pinMode(3, OUTPUT);
+  //especial derecho/atras//
+  pinMode(4, OUTPUT);
+  //especial izquierdo/frente//
+  pinMode(5, OUTPUT);
+  //especial centro//
+  pinMode(6, OUTPUT);
+  //iluminación amarillo derecho//
+  pinMode(7, OUTPUT);
+  //iluminación azul derecho//
+  pinMode(8, OUTPUT);
+  //iluminación rojo derecho//
+  pinMode(9, OUTPUT);
+  //iluminación amarillo izquierdo//
+  pinMode(10, OUTPUT);
+
+  for (int thisPin = 1; thisPin < 10; thisPin++) {  //inicialización
+    pinMode(thisPin, OUTPUT);
+  }
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  //especial frente izquierdo//
+  digitalWrite(5, HIGH);
+  delay(9000);  //millis
+  digitalWrite(5, LOW);
+  delay(100);  //millis
+
+  //ambiente ammarillo//
+  digitalWrite(7, HIGH);
+  digitalWrite(10, HIGH);
+  delay(7000);  //millis
+  digitalWrite(7, LOW);
+  digitalWrite(10, LOW);
+  delay(100);  //millis
+
+  //especial centro//
+  digitalWrite(6, HIGH);
+  delay(8000);  //millis
+  digitalWrite(6, LOW);
+  delay(100);  //millis
+
+  //especial reflectores frontales//
+  digitalWrite(3, HIGH);
+  delay(6000);  //millis
+  digitalWrite(3, LOW);
+  delay(100);  //millis
+
+  //ambiente ammarillo//
+  digitalWrite(7, HIGH);
+  digitalWrite(10, HIGH);
+  delay(8000);  //millis
+  digitalWrite(7, LOW);
+  digitalWrite(10, LOW);
+  delay(100);  //millis
+
+  //ambiente rojo//
+  digitalWrite(1, HIGH);
+  digitalWrite(9, HIGH);
+  delay(6000);  //millis
+  digitalWrite(1, LOW);
+  digitalWrite(9, LOW);
+  delay(100);  //millis
+
+  //ambiente ammarillo//
+  digitalWrite(7, HIGH);
+  digitalWrite(10, HIGH);
+  delay(4000);  //millis
+  digitalWrite(7, LOW);
+  digitalWrite(10, LOW);
+  delay(100);  //millis
+
+  if (10 < 1)
+    ;
+  for (int thisPin = 1; thisPin < 10; thisPin++) {
+    digitalWrite(thisPin, HIGH);
+    delay(100 / 4);
+    digitalWrite(thisPin, LOW);
+    digitalWrite(thisPin, HIGH);
+    delay(100 / 4);
+    digitalWrite(thisPin, LOW);
+    digitalWrite(thisPin, HIGH);
+    delay(100 / 4);
+    digitalWrite(thisPin, LOW);
+
+
+    for (int thisPin = 10; thisPin > 1; thisPin--) {
+      digitalWrite(thisPin, HIGH);
+      delay(100 / 4);
+      digitalWrite(thisPin, LOW);
+      digitalWrite(thisPin, HIGH);
+      delay(100 / 4);
+      digitalWrite(thisPin, LOW);
+      digitalWrite(thisPin, HIGH);
+      delay(100 / 4);
+      digitalWrite(thisPin, LOW);
+    }
+  }
+
+  //especial derecho atrás//
+  digitalWrite(4, HIGH);
+  delay(4000);  //millis
+  digitalWrite(4, LOW);
+  delay(50);  //millis
+
+  //ambiente azúl//
+  digitalWrite(2, HIGH);
+  digitalWrite(8, HIGH);
+  delay(8000);  //millis
+
+  //especiales//
+  digitalWrite(6, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(4, HIGH);
+  delay(12000);  //millis
+
+  digitalWrite(2, LOW);
+  digitalWrite(8, LOW);
+  delay(4000);  //millis
+
+  digitalWrite(6, LOW);
+  delay(6000);  //millis
+  digitalWrite(4, LOW);
+  delay(1000);  //millis
+  digitalWrite(5, LOW);
+  delay(3000);  //millis
+
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  digitalWrite(8, HIGH);
+  digitalWrite(9, HIGH);
+  delay(4000);  //millis
+
+  digitalWrite(1, LOW);
+  digitalWrite(2, LOW);
+  digitalWrite(3, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+  digitalWrite(8, LOW);
+  digitalWrite(9, LOW);
+  delay(10000);
+}
