@@ -1,0 +1,33 @@
+int lp = 12;
+int i;
+int bk;
+int bkt;
+int dt = 300;
+String msg1 = "Por favor ingresa un número de parpadeos: ";
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+  Serial.begin(9600);
+  pinMode(lp, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  Serial.println(msg1);
+
+  while (Serial.available() == 0) {
+  }
+
+  bkt = Serial.parseInt();
+
+  for (i = 0; i < bkt; i++) {
+  
+  digitalWrite(lp, HIGH);
+  delay(dt);
+  digitalWrite(lp, LOW);
+  delay(dt);
+}
+}
