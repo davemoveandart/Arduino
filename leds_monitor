@@ -1,0 +1,41 @@
+
+int gp = 13;
+int rp = 12;
+int bp = 11;
+String ledColor;
+String msg1 = "Escribe un color de led";
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  pinMode(gp, OUTPUT);
+  pinMode(rp, OUTPUT);
+  pinMode(bp, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Serial.println();
+  Serial.println(msg1);
+  while (Serial.available() == 0) {
+  }
+
+  ledColor = Serial.readString();
+
+  if (ledColor == "verde" || ledColor == "VERDE") {
+    digitalWrite(gp, HIGH);
+    digitalWrite(rp, LOW);
+    digitalWrite(bp, LOW);
+  }
+  if (ledColor == "rojo" || ledColor == "ROJO") {
+    digitalWrite(gp, LOW);
+    digitalWrite(rp, HIGH);
+    digitalWrite(bp, LOW);
+  }
+  if (ledColor == "azul" || ledColor == "AZUL") {
+    digitalWrite(gp, LOW);
+    digitalWrite(rp, LOW);
+    digitalWrite(bp, HIGH);
+  }
+}
